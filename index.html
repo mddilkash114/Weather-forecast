@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+
+    <meta name="theme-color" content="#6e8efb">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Weather App">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌤️</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌤️</text></svg>">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Forecast</h1>
+
+        <div class="search-container">
+            <input type="text" id="locationInput" placeholder="Enter a city name">
+            <button id="searchButton">Search</button>
+        </div>
+
+        <div class="loading" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+        <div class="weather-info" id="weatherInfo">
+            <div class="info-left">
+                <h2 id="location"></h2>
+                <div class="weather-icon" id="weatherIcon"></div>
+                <div class="temperature-container">
+                    <p id="temperature"></p>
+                </div>
+                <p id="description"></p>
+
+                <div class="weather-details">
+                    <div class="detail">
+                        <div class="detail-label">Feels Like</div>
+                        <div class="detail-value" id="feelsLike"></div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Humidity</div>
+                        <div class="detail-value" id="humidity"></div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Wind</div>
+                        <div class="detail-value" id="windSpeed"></div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Rain</div>
+                        <div class="detail-value" id="rain"></div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Clouds</div>
+                        <div class="detail-value" id="clouds"></div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Pressure</div>
+                        <div class="detail-value" id="pressure"></div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Sunrise</div>
+                        <div class="detail-value" id="sunrise"></div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Sunset</div>
+                        <div class="detail-value" id="sunset"></div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Visibility</div>
+                        <div class="detail-value" id="visibility"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-right">
+                <p class="map-hint">Tap anywhere on the map to get weather there</p>
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <div id="installPrompt">
+            <p>📱 Install this app for better experience</p>
+            <button id="installButton">Install</button>
+            <button id="cancelInstall">Not Now</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
